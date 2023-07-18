@@ -41,14 +41,7 @@ class MainActivity : AppCompatActivity() {
         edtLoginUser = findViewById(R.id.edt_login_username)
         edtLoginPass = findViewById(R.id.edt_login_password)
         btnLogIn = findViewById(R.id.btn_login)
-
-        cognitoHelper.validateSession { hasSession ->
-            if (hasSession) {
-                goToWelcome()
-            } else {
-                handleRegistrationOrLogin()
-            }
-        }
+        handleRegistrationOrLogin()
     }
 
     private fun handleRegistrationOrLogin() {
@@ -115,7 +108,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToWelcome() {
         val intent = Intent(this, WelcomeActivity::class.java)
-        startActivity(intent)
     }
 
     private fun launchToast(message: String) {
